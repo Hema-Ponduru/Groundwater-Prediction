@@ -233,22 +233,23 @@ def model():
         
         elif s == 3:
             # Training the Gradient Boosting Regressor
-            gbr_model = RandomForestRegressor()
-            gbr_model.fit(x_train, y_train)
+            r_model = RandomForestRegressor()
+            print('abc')
+            r_model.fit(x_train, y_train)
 
             # Predicting on test data
-            y_pred_gbr = gbr_model.predict(x_test)
+            y_pred_r = r_model.predict(x_test)
 
             # Evaluation Metrics
-            r2_gbr = r2_score(y_test, y_pred_gbr)
-            mse_gbr = mean_squared_error(y_test, y_pred_gbr)
-            mae_gbr = mean_absolute_error(y_test, y_pred_gbr)
-            rmse_gbr = np.sqrt(mse_gbr)
+            r2_r = r2_score(y_test, y_pred_r)
+            mse_r = mean_squared_error(y_test, y_pred_r)
+            mae_r = mean_absolute_error(y_test, y_pred_r)
+            rmse_r = np.sqrt(mse_r)
             print('aaaaaaaaaaaaaaaaaaaaaaaaa')
-            r2 = 'The r2 obtained by Random Forest Regressor is  ' + str(r2_gbr) 
-            mse = 'The mse obtained by  Random Forest Regressor is  ' + str(mse_gbr) 
-            mae = 'The mae obtained by Random Forest Regressor is  ' + str(mae_gbr) 
-            rmse = 'The rmse obtained by Random Forest Regressor is  ' + str(rmse_gbr) 
+            r2 = 'The r2 obtained by Random Forest Regressor is  ' + str(r2_r) 
+            mse = 'The mse obtained by  Random Forest Regressor is  ' + str(mse_r) 
+            mae = 'The mae obtained by Random Forest Regressor is  ' + str(mae_r) 
+            rmse = 'The rmse obtained by Random Forest Regressor is  ' + str(rmse_r) 
             return render_template('model.html', r2=r2, mse=mse, mae=mae,rmse=rmse)
        
     return render_template('model.html')
